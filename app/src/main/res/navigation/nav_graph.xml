@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.avvritersmedia.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_InsparationPg"
+            app:destination="@id/InsoarationPg" />
+    </fragment>
+    <fragment
+        android:id="@+id/InsoarationPg"
+        android:name="com.example.avvritersmedia.InsparationPg"
+        android:label="inspirationpg_fragment_label"
+        tools:layout="@layout/fragment_insparation_pg" >
+        <action
+            android:id="@+id/action_InsoarationPg_to_Ideapg"
+            app:destination="@id/Ideapg" />
+        <action
+            android:id="@+id/action_InsoarationPg_to_WritersBlockPg"
+            app:destination="@id/WritersBlockPg" />
+    </fragment>
+    <fragment
+        android:id="@+id/Ideapg"
+        android:name="com.example.avvritersmedia.IdeaPg"
+        android:label="ideapg_fragmebt_label"
+        tools:layout="@layout/fragment_idea_pg"/>
+    <fragment
+        android:id="@+id/WritersBlockPg"
+        android:name="com.example.avvritersmedia.WritersBlockPg"
+        android:label="writersblockpg_fragment_label"
+        tools:layout="@layout/fragment_writers_block_pg" />
+</navigation>

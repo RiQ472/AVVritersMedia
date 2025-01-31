@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".top_menu">
+    <item android:title="idea"
+        android:icon="@mipmap/ic_ideapg_button"
+        android:id="@+id/nav_ideapg"/>
+    <item android:title="inspiration"
+        android:icon="@color/material_dynamic_tertiary50"
+        android:id="@+id/nav_inspirationpg"/>
+    <item android:title="witers_block"
+        android:icon="@color/design_default_color_primary_variant"
+        android:id="@+id/nav_writersblockpg"/>
+</menu>
