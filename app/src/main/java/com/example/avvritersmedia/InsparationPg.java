@@ -36,11 +36,11 @@ FragmentInsparationPgBinding binding;
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonIdeapg.setOnClickListener(v ->
+        binding.buttonIdeapgInspg.setOnClickListener(v ->
                 NavHostFragment.findNavController(InsparationPg.this)
                         .navigate(R.id.action_InsoarationPg_to_Ideapg)
         );
-        binding.buttonWritersblockpg.setOnClickListener(v ->
+        binding.buttonWritersblockpgInspg.setOnClickListener(v ->
                 NavHostFragment.findNavController(InsparationPg.this)
                         .navigate(R.id.action_InsoarationPg_to_WritersBlockPg)
         );

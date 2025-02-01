@@ -48,7 +48,7 @@
         android:fontFamily="@font/aladin"
         android:text="Get Started"
         android:textColor="@color/black"
-        android:textSize="48sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
