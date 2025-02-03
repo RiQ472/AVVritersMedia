@@ -6,5 +6,6 @@
     <color name="grey">#4B4B4B</color>
     <color name="light_pink">#C6F08CFC</color>
     <color name="light_grey">#8C8C8C</color>
+    <color name="text_background_gray">#B4B0B0</color>
 
 </resources>

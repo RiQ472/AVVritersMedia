@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -33,16 +35,16 @@ public class WritersBlockPg extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonIdeapgWbpg.setOnClickListener(v ->
-                NavHostFragment.findNavController(WritersBlockPg.this)
-                        .navigate(R.id.action_InsoarationPg_to_Ideapg)
-        );
-        binding.buttonInspirationpgWbpg.setOnClickListener(v ->
-                NavHostFragment.findNavController(WritersBlockPg.this)
-                        .navigate(R.id.action_InsoarationPg_to_WritersBlockPg)
-        );
+        binding.buttonIdeapgWbpg.setOnClickListener(view2 -> replaceFragment(new IdeaPg()));
+        binding.buttonInspirationpgWbpg.setOnClickListener(view1 -> replaceFragment(new InsparationPg()));
     }
-
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        assert fragmentManager != null;
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_main,fragment);
+        fragmentTransaction.commit();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -36,16 +38,19 @@ FragmentInsparationPgBinding binding;
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonIdeapgInspg.setOnClickListener(v ->
-                NavHostFragment.findNavController(InsparationPg.this)
-                        .navigate(R.id.action_InsoarationPg_to_Ideapg)
-        );
-        binding.buttonWritersblockpgInspg.setOnClickListener(v ->
-                NavHostFragment.findNavController(InsparationPg.this)
-                        .navigate(R.id.action_InsoarationPg_to_WritersBlockPg)
-        );
+        binding.buttonIdeaPgInsPg.setOnClickListener(view1 -> replaceFragment(new IdeaPg()));
+        binding.buttonWritersBlockPgInsPg.setOnClickListener(view2 -> replaceFragment(new WritersBlockPg()));
+        binding.buttonAddIdea.setOnClickListener(view1 -> replaceFragment(new AddUserIdeaPg()));
+        binding.buttonMyIdeaInsPg.setOnClickListener(view1 -> replaceFragment(new UserIdeasPg()));
+        binding.buttonRooms.setOnClickListener(view1 -> replaceFragment(new UserChatRooms()));
     }
-
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        assert fragmentManager != null;
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_main,fragment);
+        fragmentTransaction.commit();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

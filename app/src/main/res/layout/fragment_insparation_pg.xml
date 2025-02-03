@@ -9,7 +9,7 @@
     tools:context=".InsparationPg">
 
     <Button
-        android:id="@+id/button_writersblockpg_inspg"
+        android:id="@+id/button_WritersBlockPgInsPg"
         android:layout_width="181dp"
         android:layout_height="89dp"
         android:layout_marginStart="279dp"
@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_inspirationpg_inspg"
+        android:id="@+id/buttonInspirationPgInsPg"
         android:layout_width="158dp"
         android:layout_height="90dp"
         android:layout_marginStart="108dp"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_ideapg_inspg"
+        android:id="@+id/buttonIdeaPgInsPg"
         android:layout_width="105dp"
         android:layout_height="90dp"
         android:layout_marginStart="3dp"
@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView_inspg"
+        android:id="@+id/imageViewInsPg"
         android:layout_width="380dp"
         android:layout_height="187dp"
         android:layout_marginStart="16dp"
@@ -77,6 +77,144 @@
         android:layout_marginBottom="397dp"
         android:background="@color/grey"
         android:src="@drawable/sharp_add_2_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="153dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="524dp"
+        android:text="user95"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonAddIdea"
+        android:layout_width="92dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="638dp"
+        android:layout_marginEnd="319dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/black"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sharp_add_usermainpg_2_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonMyIdeaInsPg"
+        android:layout_width="166dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="643dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/sharp_add_2_24"
+        android:fontFamily="@font/aladin"
+        android:text="My Ideas"
+        android:textColor="@color/Magenta"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonRooms"
+        android:layout_width="114dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="303dp"
+        android:layout_marginTop="636dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/sharp_add_2_24"
+        android:fontFamily="@font/aladin"
+        android:text="Rooms"
+        android:textColor="@color/Magenta"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="359dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="261dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="407dp"
+        android:text="Look at references to your idea it may bring the spark back!"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="339dp"
+        android:layout_marginEnd="283dp"
+        android:layout_marginBottom="335dp"
+        android:src="@drawable/baseline_comment_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="307dp"
+        android:layout_marginTop="346dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="313dp"
+        android:src="@mipmap/ic_tree"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="62dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="339dp"
+        android:layout_marginEnd="346dp"
+        android:layout_marginBottom="336dp"
+        android:src="@mipmap/ic_like_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="88dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginBottom="498dp"
+        android:src="@drawable/baseline_circle_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
