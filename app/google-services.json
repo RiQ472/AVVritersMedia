@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "125599364227",
+    "project_id": "avvm-fcf60",
+    "storage_bucket": "avvm-fcf60.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125599364227:android:f7ee05411c382c8d3857b6",
+        "android_client_info": {
+          "package_name": "com.example.avvritersmedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlr8LfTvDmt8eKhjrTNxtTd5UFdneEwdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
