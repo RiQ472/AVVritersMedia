@@ -1,5 +1,8 @@
 package com.example.avvritersmedia;
 
+import static androidx.core.content.ContextCompat.startActivities;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,8 +26,6 @@ public class UserChatRooms extends Fragment {
     }
 
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,21 +36,23 @@ public class UserChatRooms extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding=FragmentUserChatRoomsBinding.inflate(inflater,container,false);
+        binding = FragmentUserChatRoomsBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-binding.imageButton2.setOnClickListener(view1 -> replaceFragment(new InsparationPg()));
+        binding.imageButton2.setOnClickListener(view1 -> replaceFragment(new InsparationPg()));
+
+
     }
 
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         assert fragmentManager != null;
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment_content_main,fragment);
-        fragmentTransaction.commit();
+        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_content_main, fragment).commit();
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

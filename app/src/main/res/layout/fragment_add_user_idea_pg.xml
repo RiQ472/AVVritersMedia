@@ -9,27 +9,30 @@
     tools:context=".AddUserIdeaPg">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <EditText
-        android:id="@+id/edittext_user_idea_body"
-        android:layout_width="396dp"
-        android:layout_height="48dp"
+    <ScrollView
+        android:layout_width="402dp"
+        android:layout_height="610dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="122dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="561dp"
-        android:inputType="text"
-        android:text="Type Here"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <EditText
+            android:id="@+id/edittext_user_idea_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Type Here"
+            android:inputType="text"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="-195dp"
+            tools:layout_editor_absoluteY="216dp"
+            tools:text="body" />
+    </ScrollView>
 
     <EditText
-        android:id="@+id/edittext_user_idea_tittle"
+        android:id="@+id/edittext_user_idea_title"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="397dp"
         android:layout_height="67dp"
@@ -43,10 +46,12 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:fontFamily="sans-serif"
+        android:hint="Title"
         android:inputType="text"
-        android:text="Tittle"
+        android:text="Title"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="40sp"
         android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -14,10 +14,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.avvritersmedia.databinding.FragmentFirstBinding;
+import com.example.avvritersmedia.usersdata.UserData;
 
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
+
 
     @Override
     public View onCreateView(
@@ -26,6 +28,7 @@ public class FirstFragment extends Fragment {
     ) {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
 
     }
@@ -36,16 +39,14 @@ public class FirstFragment extends Fragment {
         binding.buttonGetstarted.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        replaceFragment(new InsparationPg());
+                        replaceFragment(new SignInPg());
                     }
                 });
     }
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         assert fragmentManager != null;
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment_content_main,fragment);
-        fragmentTransaction.commit();
+        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_content_main,fragment).commit();
     }
     @Override
     public void onDestroyView() {
