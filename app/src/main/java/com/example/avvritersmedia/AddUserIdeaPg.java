@@ -8,32 +8,37 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ScrollView;
 
 import com.example.avvritersmedia.databinding.FragmentAddUserIdeaPgBinding;
 import com.example.avvritersmedia.usermodel.UserDataViewModel;
 import com.example.avvritersmedia.usersdata.UserData;
 import com.example.avvritersmedia.usersdata.UserIdea;
+import com.example.avvritersmedia.utils.FirebaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class AddUserIdeaPg extends Fragment {
 
-Button back;
-Button save;
+ImageButton back, save;
 EditText title;
 EditText body;
     FragmentAddUserIdeaPgBinding binding;
-    FirebaseFirestore db;
-    MainActivity mainActivity;
 UserDataViewModel userDataViewModel;
 String t;
 String b;
 String Id;
+ScrollView scrollView;
+    UserData userData;
 boolean edit;
 public AddUserIdeaPg(String t,String b,String Id){
     this.t=t;
@@ -53,27 +58,78 @@ public AddUserIdeaPg(){}
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding=FragmentAddUserIdeaPgBinding.inflate(inflater, container, false);
-        back=binding.buttonBackAuipg;
+        back=binding.buttonBackUIpg;
         save=binding.buttonSave;
         title=binding.edittextUserIdeaTitle;
         body=binding.edittextUserIdeaBody;
-        mainActivity=(MainActivity) getActivity();
-        userDataViewModel=new ViewModelProvider(requireActivity()).get(UserDataViewModel.class);
+        scrollView=binding.scrollviewBody;
+
+userData=UserDataViewModel.getUserData().getValue();
         if(edit){title.setText(t);body.setText(b);}
         return binding.getRoot();
     }
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        scrollView.setVerticalScrollBarEnabled(true);
+        body.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Scroll to the bottom automatically
+                body.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // This will ensure the EditText scrolls to the bottom
+                        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                    }
+                });
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        title.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Scroll to the bottom automatically
+                body.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // This will ensure the EditText scrolls to the bottom
+                        scrollView.fullScroll(ScrollView.FOCUS_UP);
+                    }
+                });
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
         back.setOnClickListener(view1 -> replaceFragment(new InsparationPg()));
-save.setOnClickListener(view1 ->
-     {
-         String t=title.getText().toString();
-         String b=body.getText().toString();
-         if(t.isEmpty())title.setError("A tittle is needed");
-mainActivity.updateUserData("useridea",t+','+b);
-         replaceFragment(new UserIdeasPg());
-     });
+        save.setOnClickListener(view1 ->
+        {
+            String t = title.getText().toString();
+            String b = body.getText().toString();
+            if (t.isEmpty()) title.setError("A tittle is needed");
+FirebaseUtil.isLoggedIn();
+            userData.addIdea(t,b);
+            UserDataViewModel.setUserData(userData);
+            FirebaseUtil.saveUserDataCollection();
+            replaceFragment(new UserIdeasPg());
+        });
     }
 
     public void replaceFragment(Fragment fragment) {

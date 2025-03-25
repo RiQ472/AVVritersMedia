@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.avvritersmedia.databinding.FragmentSignInPgBinding;
 import com.example.avvritersmedia.usermodel.UserDataViewModel;
 import com.example.avvritersmedia.usersdata.UserData;
+import com.example.avvritersmedia.utils.FirebaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -41,9 +42,7 @@ EditText username;
 EditText email;
 EditText password;
 Button signin;
-    FirebaseAuth mAuth;
 FragmentSignInPgBinding binding;
-UserDataViewModel userDataViewModel;
     public SignInPg() {
         // Required empty public constructor
     }
@@ -71,9 +70,7 @@ UserDataViewModel userDataViewModel;
         email=binding.editTextEmail;
         password=binding.editTextPassword;
         signin=binding.buttonSign;
-        userDataViewModel=new ViewModelProvider(requireActivity()).get(UserDataViewModel.class);
-         mAuth = FirebaseAuth.getInstance();
-         userData=new UserData();
+
         return binding.getRoot();
     }
     @SuppressLint("RestrictedApi")
@@ -83,19 +80,17 @@ UserDataViewModel userDataViewModel;
 String em=email.getText().toString();
             String un=username.getText().toString();
             String pass=password.getText().toString();
-
             if(em.isEmpty()){email.setError("Pleas fill in field"); return;}
             if(un.isEmpty()){username.setError("Pleas fill in field");return;}
            if(pass.isEmpty()){password.setError("Pleas fill in field");return;}
-           userData.setUserId("user_"+createUserId());
+            userData=new UserData();
+           userData.setUserId("user_Test");//+createUserId());
            userData.setPassword(pass);
            userData.setUserEmail(em);
            userData.setUserName(un);
-userData.addIdea("kdj","fjkd");
-userData.addIdea("bai","la");
-userData.addIdea("koko","bean");
-           userDataViewModel.setUserData(userData);
-           saveUserDataToFirestore();
+           UserDataViewModel.setUserData(userData);
+            FirebaseUtil.saveUserDataCollection();
+
            replaceFragment(new InsparationPg());
         });
     }
@@ -109,12 +104,7 @@ userData.addIdea("koko","bean");
         assert fragmentManager != null;
         fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_content_main,fragment).commit();
     }
-    private void saveUserDataToFirestore() {
-        // Get the user ID from the current authenticated user
 
-        MainActivity mainActivity = getActivity() != null ? (MainActivity) getActivity() : null;
-        mainActivity.saveUserDataToFirestore();
-    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

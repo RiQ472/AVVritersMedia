@@ -22,23 +22,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="383dp"
-            android:layout_height="66dp"
-            android:background="@color/grey"
-            android:backgroundTint="@color/grey"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true" />
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="43dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="352dp"
-            android:layout_marginTop="5dp"
-            android:src="@android:drawable/ic_menu_edit"
-            android:layout_alignRight="@+id/textView1"
-            android:layout_alignTop="@+id/textView1"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_ideas_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+        />
+
 
     </RelativeLayout>
 

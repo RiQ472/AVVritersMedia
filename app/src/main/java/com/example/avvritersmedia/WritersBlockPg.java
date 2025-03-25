@@ -27,7 +27,8 @@ public class WritersBlockPg extends Fragment {
     Button idea;
     Button inspiration;
     Button myidea;
-    ImageButton plus;
+    ImageButton plus, btnInspiration, btnIdea, btnWritersBlock;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,11 @@ public class WritersBlockPg extends Fragment {
         inspiration = binding.buttonInspiration;
         myidea = binding.buttonMyIdeas;
         plus = binding.buttonAddIdea;
+        btnInspiration=binding.buttonInspoLine;
+        btnIdea=binding.buttonIdeaLine;
+        btnWritersBlock=binding.buttonWritersBlockLine;
+        resetButtonStates();
+        btnWritersBlock.setVisibility(View.VISIBLE);
         return binding.getRoot();
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -56,6 +62,12 @@ public class WritersBlockPg extends Fragment {
         rooms.setOnClickListener(v -> replaceFragment(new UserChatRooms()));
         myidea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
         plus.setOnClickListener(v -> replaceFragment(new AddUserIdeaPg()));
+    }
+    private void resetButtonStates() {
+        // Reset all buttons to default state
+        btnInspiration.setVisibility(View.INVISIBLE);
+        btnIdea.setVisibility(View.INVISIBLE);
+        btnWritersBlock.setVisibility(View.INVISIBLE);
     }
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();

@@ -1,5 +1,6 @@
 package com.example.avvritersmedia;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ public class InsparationPg extends Fragment {
     Button inspiration;
     Button myidea;
     ImageButton plus;
+    private ImageButton btnInspiration, btnIdea, btnWritersBlock;
 FragmentInsparationPgBinding binding;
     public InsparationPg() {
 
@@ -44,7 +46,11 @@ FragmentInsparationPgBinding binding;
         inspiration = binding.buttonInspiration;
         myidea = binding.buttonMyIdeas;
         plus = binding.buttonAddIdea;
-
+btnInspiration=binding.buttonInspoLine;
+        btnIdea=binding.buttonIdeaLine;
+        btnWritersBlock=binding.buttonWritersBlockLine;
+        resetButtonStates();
+        btnInspiration.setVisibility(View.VISIBLE);
         return binding.getRoot();
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -57,6 +63,12 @@ FragmentInsparationPgBinding binding;
         myidea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
         plus.setOnClickListener(v -> replaceFragment(new AddUserIdeaPg()));
 
+    }
+    private void resetButtonStates() {
+        // Reset all buttons to default state
+        btnInspiration.setVisibility(View.INVISIBLE);
+        btnIdea.setVisibility(View.INVISIBLE);
+        btnWritersBlock.setVisibility(View.INVISIBLE);
     }
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();

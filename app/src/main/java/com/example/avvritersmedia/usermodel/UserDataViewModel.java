@@ -9,13 +9,13 @@ import com.example.avvritersmedia.usersdata.UserData;
 
 public class UserDataViewModel extends ViewModel {
 
-private MutableLiveData<UserData> userdata = new MutableLiveData<>();
+private static MutableLiveData<UserData> userdata = new MutableLiveData<>();
 
-public LiveData<UserData> getUserData() {
+public static LiveData<UserData> getUserData() {
     return userdata;
 }
 
-public void setUserData(UserData data) {
+public static void setUserData(UserData data) {
     userdata.setValue(data);
 }
 }

@@ -35,6 +35,17 @@
             android:textColor="@color/Magenta"
             android:textSize="18dp" />
 
+
+        <ImageButton
+            android:layout_height="5dp"
+            android:layout_width="75dp"
+            android:id="@+id/button_WritersBlock_line"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/button_WritersBlock"
+            android:background="@color/Magenta"
+            android:layout_marginRight="25dp"
+            />
+
         <Button
             android:id="@+id/button_Inspiration"
             android:layout_width="158dp"
@@ -47,7 +58,14 @@
             android:textAlignment="center"
             android:textColor="@color/Magenta"
             android:textSize="21sp" />
-
+        <ImageButton
+            android:id="@+id/button_Inspo_line"
+            android:layout_width="75dp"
+            android:layout_height="5dp"
+            android:layout_centerInParent="true"
+            android:layout_alignBottom="@+id/button_WritersBlock"
+            android:background="@color/Magenta"
+            />
         <Button
             android:id="@+id/button_Idea"
             android:layout_width="105dp"
@@ -62,6 +80,15 @@
             android:textAlignment="center"
             android:textColor="@color/Magenta"
             android:textSize="24sp" />
+        <ImageButton
+            android:id="@+id/button_Idea_line"
+            android:layout_height="5dp"
+            android:layout_width="75dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/button_WritersBlock"
+            android:background="@color/Magenta"
+            android:layout_marginStart="20dp"
+            />
     </RelativeLayout>
 
     <RelativeLayout

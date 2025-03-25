@@ -2,6 +2,7 @@ package com.example.avvritersmedia;
 
 import static androidx.core.content.ContextCompat.startActivities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +14,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.avvritersmedia.databinding.FragmentUserChatRoomsBinding;
 
@@ -20,6 +25,11 @@ public class UserChatRooms extends Fragment {
 
 
     FragmentUserChatRoomsBinding binding;
+ImageButton btnPublicLine,btnPrivateLine,btnImageButtonProfile;
+Button btnPublic,btnPrivate;
+ImageView chatroom2;
+TextView chat1T,chat1Txt;
+String name,text;
 
     public UserChatRooms() {
         // Required empty public constructor
@@ -37,14 +47,39 @@ public class UserChatRooms extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentUserChatRoomsBinding.inflate(inflater, container, false);
+        btnPrivateLine=binding.buttonPrivateLine;
+        btnPublicLine=binding.buttonPublicLine;
+        btnPublic=binding.buttonPublic;
+        btnPrivate=binding.buttonPrivate;
+        chatroom2=binding.imageView2;
+        chat1T=binding.textViewChat1;
+        chat1Txt=binding.textView3;
+        btnImageButtonProfile=binding.imageButtonProfile;
+        chatroom2.setVisibility(View.INVISIBLE);
+        btnPrivateLine.setVisibility(View.INVISIBLE);
         return binding.getRoot();
     }
 
+    @SuppressLint("SetTextI18n")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.imageButton2.setOnClickListener(view1 -> replaceFragment(new InsparationPg()));
 
-
+btnPrivate.setOnClickListener(view1 -> {
+    btnPublicLine.setVisibility(View.INVISIBLE);
+    btnPrivateLine.setVisibility(View.VISIBLE);
+    chatroom2.setVisibility(View.VISIBLE);
+    chat1T.setText("User45");
+chat1Txt.setText("How did the test go?");
+});
+btnPublic.setOnClickListener(view1 -> {
+    btnPublicLine.setVisibility(View.VISIBLE);
+    btnPrivateLine.setVisibility(View.INVISIBLE);
+    chatroom2.setVisibility(View.INVISIBLE);
+    chat1T.setText("ChatBot");
+    chat1Txt.setText("Welcome to AVVritters Media! if you need any assistance");
+});
+btnImageButtonProfile.setOnClickListener(view1 -> replaceFragment(new ProfilePg()));
     }
 
     public void replaceFragment(Fragment fragment) {

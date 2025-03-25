@@ -26,6 +26,8 @@ public class IdeaPg extends Fragment {
     Button idea;
     Button inspiration;
     Button myidea;
+    private ImageButton btnInspiration, btnIdea, btnWritersBlock;
+
     ImageButton plus;
     public IdeaPg() {
         // Required empty public constructor
@@ -48,6 +50,11 @@ public class IdeaPg extends Fragment {
         inspiration = binding.buttonInspiration;
         myidea = binding.buttonMyIdeas;
         plus = binding.buttonAddIdea;
+        btnInspiration=binding.buttonInspoLine;
+        btnIdea=binding.buttonIdeaLine;
+        btnWritersBlock=binding.buttonWritersBlockLine;
+        resetButtonStates();
+        btnIdea.setVisibility(View.VISIBLE);
         return binding.getRoot();
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -58,6 +65,12 @@ public class IdeaPg extends Fragment {
         rooms.setOnClickListener(v -> replaceFragment(new UserChatRooms()));
         myidea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
         plus.setOnClickListener(v -> replaceFragment(new AddUserIdeaPg()));
+    }
+    private void resetButtonStates() {
+        // Reset all buttons to default state
+        btnInspiration.setVisibility(View.INVISIBLE);
+        btnIdea.setVisibility(View.INVISIBLE);
+        btnWritersBlock.setVisibility(View.INVISIBLE);
     }
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
