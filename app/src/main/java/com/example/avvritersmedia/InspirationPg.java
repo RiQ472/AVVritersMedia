@@ -1,32 +1,33 @@
 package com.example.avvritersmedia;
 
-import android.graphics.Color;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.example.avvritersmedia.databinding.FragmentInsparationPgBinding;
+import com.example.avvritersmedia.databinding.FragmentInspirationPgBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class InsparationPg extends Fragment {
-    Button rooms;
+public class InspirationPg extends Fragment {
     Button writersblock;
     Button idea;
     Button inspiration;
-    Button myidea;
-    ImageButton plus;
-    private ImageButton btnInspiration, btnIdea, btnWritersBlock;
-FragmentInsparationPgBinding binding;
-    public InsparationPg() {
+    private ImageButton btnInspiration, btnIdea, btnWritersBlock,btnProfile,btnJoinRoom,btsChatrooms, btnMyIdea,menu,plus;
+    FragmentInspirationPgBinding binding;
+    RelativeLayout relativeLayout;
+    MainActivity mainActivity;
+FloatingActionButton floatingActionButton;
+    public InspirationPg() {
 
     }
 
@@ -39,13 +40,20 @@ FragmentInsparationPgBinding binding;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding=FragmentInsparationPgBinding.inflate(inflater,container,false);
-        rooms = binding.buttonRooms;
+        binding=FragmentInspirationPgBinding.inflate(inflater,container,false);
+//        mainActivity=(MainActivity)getActivity();
+//        assert mainActivity != null;
+//        mainActivity.floatingButtonVisible();
+        relativeLayout=binding.relativeLayoutMenu;
+        menu=binding.imageButtonMenu;
+        btnProfile=binding.imageButtonProfile;
+        btsChatrooms=binding.imageButtonMyRooms;
+btnMyIdea=binding.imageButtonMyIdeas;
         writersblock = binding.buttonWritersBlock;
         idea = binding.buttonIdea;
         inspiration = binding.buttonInspiration;
-        myidea = binding.buttonMyIdeas;
         plus = binding.buttonAddIdea;
+
 btnInspiration=binding.buttonInspoLine;
         btnIdea=binding.buttonIdeaLine;
         btnWritersBlock=binding.buttonWritersBlockLine;
@@ -53,15 +61,27 @@ btnInspiration=binding.buttonInspoLine;
         btnInspiration.setVisibility(View.VISIBLE);
         return binding.getRoot();
     }
+    @SuppressLint("ClickableViewAccessibility")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         idea.setOnClickListener(v -> replaceFragment(new IdeaPg()));
-        inspiration.setOnClickListener(v -> replaceFragment(new InsparationPg()));
+        inspiration.setOnClickListener(v -> replaceFragment(new InspirationPg()));
         writersblock.setOnClickListener(v -> replaceFragment(new WritersBlockPg()));
-        rooms.setOnClickListener(v -> replaceFragment(new UserChatRooms()));
-        myidea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
+        btnMyIdea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
+        btsChatrooms.setOnClickListener(v -> replaceFragment(new UserChatRooms()));
+        btnProfile.setOnClickListener(v -> replaceFragment(new ProfilePg()));
         plus.setOnClickListener(v -> replaceFragment(new AddUserIdeaPg()));
+menu.setOnClickListener(view1 -> {
+if(relativeLayout.getVisibility()==View.GONE)relativeLayout.setVisibility(View.VISIBLE);
+else relativeLayout.setVisibility(View.GONE);
+});
+binding.getRoot().setOnTouchListener((v, event) -> {
+    if (relativeLayout.getVisibility() == View.VISIBLE) {
+        relativeLayout.setVisibility(View.GONE);
+    }
+    return false;
+});
 
     }
     private void resetButtonStates() {

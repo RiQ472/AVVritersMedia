@@ -3,13 +3,11 @@ package com.example.avvritersmedia;
 import static androidx.core.content.ContextCompat.startActivities;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +23,7 @@ public class UserChatRooms extends Fragment {
 
 
     FragmentUserChatRoomsBinding binding;
-ImageButton btnPublicLine,btnPrivateLine,btnImageButtonProfile;
+ImageButton btnPublicLine,btnPrivateLine;
 Button btnPublic,btnPrivate;
 ImageView chatroom2;
 TextView chat1T,chat1Txt;
@@ -54,7 +52,6 @@ String name,text;
         chatroom2=binding.imageView2;
         chat1T=binding.textViewChat1;
         chat1Txt=binding.textView3;
-        btnImageButtonProfile=binding.imageButtonProfile;
         chatroom2.setVisibility(View.INVISIBLE);
         btnPrivateLine.setVisibility(View.INVISIBLE);
         return binding.getRoot();
@@ -63,7 +60,7 @@ String name,text;
     @SuppressLint("SetTextI18n")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.imageButton2.setOnClickListener(view1 -> replaceFragment(new InsparationPg()));
+        binding.imageButton2.setOnClickListener(view1 -> replaceFragment(new InspirationPg()));
 
 btnPrivate.setOnClickListener(view1 -> {
     btnPublicLine.setVisibility(View.INVISIBLE);
@@ -79,7 +76,6 @@ btnPublic.setOnClickListener(view1 -> {
     chat1T.setText("ChatBot");
     chat1Txt.setText("Welcome to AVVritters Media! if you need any assistance");
 });
-btnImageButtonProfile.setOnClickListener(view1 -> replaceFragment(new ProfilePg()));
     }
 
     public void replaceFragment(Fragment fragment) {

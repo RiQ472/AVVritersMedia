@@ -6,26 +6,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.provider.ContactsContract.CommonDataKinds.Email;
-import android.widget.Toast;
 
 import com.example.avvritersmedia.databinding.FragmentSignInPgBinding;
 import com.example.avvritersmedia.usermodel.UserDataViewModel;
 import com.example.avvritersmedia.usersdata.UserData;
 import com.example.avvritersmedia.utils.FirebaseUtil;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.UUID;
 
@@ -88,10 +79,11 @@ String em=email.getText().toString();
            userData.setPassword(pass);
            userData.setUserEmail(em);
            userData.setUserName(un);
+
            UserDataViewModel.setUserData(userData);
             FirebaseUtil.saveUserDataCollection();
 
-           replaceFragment(new InsparationPg());
+           replaceFragment(new InspirationPg());
         });
     }
     String createUserId()

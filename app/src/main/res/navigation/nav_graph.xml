@@ -9,26 +9,14 @@
         android:id="@+id/FirstFragment"
         android:name="com.example.avvritersmedia.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_InsparationPg"
-            app:destination="@id/InsoarationPg" />
-    </fragment>
+        tools:layout="@layout/fragment_first"/>
     <fragment
-        android:id="@+id/InsoarationPg"
-        android:name="com.example.avvritersmedia.InsparationPg"
+        android:id="@+id/InspirationPg"
+        android:name="com.example.avvritersmedia.InspirationPg"
         android:label="inspirationpg_fragment_label"
-        tools:layout="@layout/fragment_insparation_pg" >
-        <action
-            android:id="@+id/action_InsoarationPg_to_Ideapg"
-            app:destination="@id/Ideapg" />
-        <action
-            android:id="@+id/action_InsoarationPg_to_WritersBlockPg"
-            app:destination="@id/WritersBlockPg" />
-    </fragment>
+        tools:layout="@layout/fragment_inspiration_pg" />
     <fragment
-        android:id="@+id/Ideapg"
+        android:id="@+id/IdeaPg"
         android:name="com.example.avvritersmedia.IdeaPg"
         android:label="ideapg_fragmebt_label"
         tools:layout="@layout/fragment_idea_pg"/>
@@ -37,4 +25,24 @@
         android:name="com.example.avvritersmedia.WritersBlockPg"
         android:label="writersblockpg_fragment_label"
         tools:layout="@layout/fragment_writers_block_pg" />
+    <fragment
+        android:id="@+id/nav_myideaspg"
+        android:name="com.example.avvritersmedia.UserIdeasPg"
+        android:label="fragment_user_ideas_pg"
+        tools:layout="@layout/fragment_user_ideas_pg" />
+    <fragment
+        android:id="@+id/nav_profilepg"
+        android:name="com.example.avvritersmedia.ProfilePg"
+        android:label="fragment_profile_pg"
+        tools:layout="@layout/fragment_profile_pg" />
+    <fragment
+        android:id="@+id/nav_joinroompg"
+        android:name="com.example.avvritersmedia.JoinRoomPg"
+        android:label="fragment_join_room_pg"
+        tools:layout="@layout/fragment_join_room_pg" />
+    <fragment
+        android:id="@+id/nav_myroomspg"
+        android:name="com.example.avvritersmedia.UserChatRooms"
+        android:label="fragment_user_chat_rooms"
+        tools:layout="@layout/fragment_user_chat_rooms" />
 </navigation>

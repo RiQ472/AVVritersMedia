@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
     <item
-        android:id="@+id/nav_ideapg"
-        android:icon="@mipmap/ic_ideapg_button"
-        android:title="Idea" />
+        android:id="@+id/nav_profilepg"
+        android:icon="@drawable/ic_profile_baseline_boy_bigger"
+        android:title="@string/profile" />
     <item
-        android:id="@+id/nav_inspirationpg"
-        android:icon="@drawable/sharp_check_24"
-        android:title="inspiration" />
+        android:id="@+id/nav_myideaspg"
+        android:icon="@drawable/ic_my_ideas_outline_assignment_magenta"
+        android:title="@string/my_ideas" />
     <item
-        android:id="@+id/nav_writersblockpg"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="witers_block" />
+        android:id="@+id/nav_myroomspg"
+        android:icon="@drawable/ic_my_room_outline_chat_bubble_magenta"
+        android:title="@string/my_rooms" />
+
+    <item
+        android:id="@+id/nav_joinroompg"
+        android:icon="@drawable/ic_join_room_outline_add_comment_magenta"
+        android:title="@string/join_room"
+        />
 </menu>
