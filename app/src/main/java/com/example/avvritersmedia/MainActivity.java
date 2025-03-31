@@ -88,27 +88,7 @@ userdata=userDataViewModel.getUserData().getValue();
 
 
     }
-    public void setUpIdeaList()
-    {
-        if(!UserDataViewModel.getUserData().getValue().getListOfIdeas().isEmpty())
-        {
-            userdata=UserDataViewModel.getUserData().getValue();
-            ArrayList<UserIdea> ideaArrayListist=new ArrayList<>();
-            for(Map.Entry<String,UserIdea> entry:userdata.getListOfIdeas().entrySet())
-            {
-                UserIdea userIde = null;
 
-                if(entry!=null)
-                {
-                    userIde=new UserIdea(entry.getValue().getTitle(),entry.getValue().getBody(),entry.getKey());
-                }
-                ideaArrayListist.add(userIde);
-            }
-            if(ideaArrayListist!=null|| !ideaArrayListist.isEmpty()){
-                userIdeasViewModelArrayList.addAll(ideaArrayListist);
-            }
-        }
-    }
 public void floatingButtonVisible()
 {
     if(floatingActionButton.getVisibility()== NavigationView.GONE) floatingActionButton.setVisibility(NavigationView.VISIBLE);

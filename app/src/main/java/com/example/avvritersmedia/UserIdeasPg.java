@@ -32,14 +32,11 @@ public class UserIdeasPg extends Fragment implements ButtonWithTitleAdapter.Butt
 
     FragmentUserIdeasPgBinding binding;
      ButtonWithTitleAdapter adapter;
-    //TextView textView;
     UserData userData;
     RecyclerView recyclerView;
     String title, body,ideaId;
-    int textviewcount;
-    List<UserIdea> listideas;
+    ArrayList<UserIdea> listideas;
     ImageButton back;
-    MainActivity mainActivity;
 
     public UserIdeasPg() {
     }
@@ -63,14 +60,10 @@ public class UserIdeasPg extends Fragment implements ButtonWithTitleAdapter.Butt
 
 
 
-mainActivity=(MainActivity)getActivity();
-        assert mainActivity != null;
-        mainActivity.setUpIdeaList();
-
 
         back=binding.buttonBackMyIdeasPg;
-
-        adapter = new ButtonWithTitleAdapter(this.getContext(),mainActivity.userIdeasViewModelArrayList, this);
+setUpIdeaList();
+        adapter = new ButtonWithTitleAdapter(this.getContext(),listideas, this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -80,22 +73,41 @@ mainActivity=(MainActivity)getActivity();
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //tittle=getArguments().getString("A");
 back.setOnClickListener(view1 -> replaceFragment(new InspirationPg()));
-
-        //textView.setText(tittle);
     }
 
     @Override
     public void onButtonClick(int position, String title, String body, String ideaId) {
-replaceFragment(new AddUserIdeaPg(title,body,ideaId));
+replaceFragment(new AddUserIdeaPg(new UserIdea(title,body,ideaId)));
     }
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         assert fragmentManager != null;
         fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_content_main, fragment).commit();
     }
+    public void setUpIdeaList()
+    {
+        if(!UserDataViewModel.getUserData().getValue().getListOfIdeas().isEmpty())
+        {
 
+            userData=UserDataViewModel.getUserData().getValue();
+            ArrayList<UserIdea> ideaArrayList=new ArrayList<>();
+            for(Map.Entry<String,UserIdea> entry:userData.getListOfIdeas().entrySet())
+            {
+                UserIdea userIde = null;
+
+                if(entry!=null)
+                {
+                    userIde=new UserIdea(entry.getValue().getTitle(),entry.getValue().getBody(),entry.getKey());
+                }
+                ideaArrayList.add(userIde);
+            }
+            if(ideaArrayList!=null|| !ideaArrayList.isEmpty()){
+                listideas=new ArrayList<>();
+                listideas.addAll(ideaArrayList);
+            }
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

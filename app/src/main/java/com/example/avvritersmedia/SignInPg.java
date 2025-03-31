@@ -16,6 +16,7 @@ import android.widget.EditText;
 import com.example.avvritersmedia.databinding.FragmentSignInPgBinding;
 import com.example.avvritersmedia.usermodel.UserDataViewModel;
 import com.example.avvritersmedia.usersdata.UserData;
+import com.example.avvritersmedia.usersdata.UserIdea;
 import com.example.avvritersmedia.utils.FirebaseUtil;
 
 import java.util.UUID;
@@ -79,7 +80,9 @@ String em=email.getText().toString();
            userData.setPassword(pass);
            userData.setUserEmail(em);
            userData.setUserName(un);
-
+userData.updateIdeaList(new UserIdea("Test1","body1",null));
+            userData.updateIdeaList(new UserIdea("Test2","body2",null));
+            userData.updateIdeaList(new UserIdea("Test3","body3",null));
            UserDataViewModel.setUserData(userData);
             FirebaseUtil.saveUserDataCollection();
 

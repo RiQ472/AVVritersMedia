@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 import com.example.avvritersmedia.databinding.FragmentAddUserIdeaPgBinding;
 import com.example.avvritersmedia.usermodel.UserDataViewModel;
 import com.example.avvritersmedia.usersdata.UserData;
+import com.example.avvritersmedia.usersdata.UserIdea;
 import com.example.avvritersmedia.utils.FirebaseUtil;
 
 public class AddUserIdeaPg extends Fragment {
@@ -32,12 +33,10 @@ String b;
 String Id;
 ScrollView scrollView;
     UserData userData;
-    MainActivity mainActivity;
+    UserIdea userIdea;
 boolean edit;
-public AddUserIdeaPg(String t,String b,String Id){
-    this.t=t;
-    this.b=b;
-    this.Id=Id;
+public AddUserIdeaPg(UserIdea userIdea){
+    this.userIdea=userIdea;
     edit=true;
 }
 public AddUserIdeaPg(){}
@@ -57,9 +56,8 @@ public AddUserIdeaPg(){}
         title=binding.edittextUserIdeaTitle;
         body=binding.edittextUserIdeaBody;
         scrollView=binding.scrollviewBody;
-        mainActivity=(MainActivity)getActivity();
 userData=UserDataViewModel.getUserData().getValue();
-        if(edit){title.setText(t);body.setText(b);}
+        if(edit){title.setText(userIdea.getTitle());body.setText(userIdea.getBody());}
         return binding.getRoot();
     }
     @Override
@@ -93,14 +91,16 @@ userData=UserDataViewModel.getUserData().getValue();
         back.setOnClickListener(view1 -> replaceFragment(new InspirationPg()));
         save.setOnClickListener(view1 ->
         {
-            String t = title.getText().toString();
-            String b = body.getText().toString();
-            if (t.isEmpty()) title.setError("A tittle is needed");
+             t = title.getText().toString();
+             b = body.getText().toString();
+            if (t.isEmpty()) title.setError("A title is needed");
 FirebaseUtil.isLoggedIn();
-            userData.addIdea(t,b);
+//check if edit is true make sure to find idea id within userDataMap
+            String id=null;
+            if(userIdea!=null&&!userIdea.getIdeaId().isEmpty())id=userIdea.getIdeaId();
+            userData.updateIdeaList(new UserIdea(t,b,id));
             UserDataViewModel.setUserData(userData);
             FirebaseUtil.saveUserDataCollection();
-            mainActivity.setUpIdeaList();
             replaceFragment(new UserIdeasPg());
         });
     }
