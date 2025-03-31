@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <include layout="@layout/content_main" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AVVritersMedia.AppBarOverlay">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="88dp"
+            android:layout_height="0dp"
+            android:background="@color/grey"
+            app:popupTheme="@style/Theme.AVVritersMedia.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@android:drawable/ic_menu_sort_by_size"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:backgroundTint="@color/Magenta"
+        android:visibility="gone"
+        app:shapeAppearanceOverlay="@style/fab_square" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
