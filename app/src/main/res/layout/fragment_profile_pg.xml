@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ProfilePg" >
+
+<TextView
+android:id="@+id/textViewPgTittle"
+android:layout_width="397dp"
+android:layout_height="67dp"
+android:layout_marginStart="7dp"
+android:layout_marginEnd="7dp"
+android:layout_marginBottom="664dp"
+android:fontFamily="sans-serif"
+android:inputType="text"
+android:text="My Profile"
+android:textAlignment="center"
+android:textColor="@color/Magenta"
+android:textSize="48sp"
+android:typeface="normal"/>
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="60dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="344dp"
+        android:layout_marginBottom="663dp"
+        android:background="@color/black"
+        android:scaleType="fitCenter"
+        android:src="@drawable/baseline_arrow_back_ios_24"/>
+    <ImageButton
+        android:id="@+id/imageButton_search"
+        android:layout_width="69dp"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="664dp"
+        android:background="@color/black"
+        android:src="?android:attr/actionModeWebSearchDrawable"
+        />
+
+    <TextView
+        android:layout_width="69dp"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="664dp"
+        android:text="Edit"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="240dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="7dp"
+        android:fontFamily="sans-serif"
+        android:inputType="text"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:typeface="normal"
+        />
+    <Button
+        android:id="@+id/buttonMyPost"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="330dp"
+        android:background="@drawable/sharp_add_2_24"
+        android:text="My Post"
+        android:textSize="25sp"
+/>
+
+    <ImageButton
+        android:id="@+id/button_MyPost_Line"
+        android:layout_width="75dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="282dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="330dp"
+        android:background="@color/light_grey"/>
+    <Button
+        android:id="@+id/buttonMyIdeas"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="330dp"
+        android:background="@drawable/sharp_add_2_24"
+        android:text="My Ideas"
+        android:textSize="25sp"
+        />
+    <ImageView
+        android:id="@+id/imageView_Post"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="90dp"
+        android:background="@color/light_grey"
+
+        />
+
+<TextView
+    android:layout_width="295dp"
+    android:layout_height="70dp"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="220dp"
+    android:textSize="30dp"
+    android:textStyle="bold"
+    android:autoSizeTextType="uniform"
+    android:id="@+id/textViewPostTittle"
+    />
+    <TextView
+        android:layout_width="295dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:inputType="textMultiLine"
+        android:layout_alignBottom="@+id/textViewPostTittle"
+        android:layout_marginBottom="-125dp"
+        android:id="@+id/textViewPostBody"
+        />
+    <ImageButton
+        android:id="@+id/button_MyIdeas_Line"
+        android:layout_width="75dp"
+        android:layout_height="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="330dp"
+        android:background="@color/light_grey"/>
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:background="@color/light_grey"
+        />
+    <ImageView
+        android:id="@+id/imageViewProfilePhoto"
+        android:layout_width="130dp"
+        android:layout_height="335dp"
+        android:src="@drawable/baseline_circle_24"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1dp"/>
+
+</RelativeLayout>

@@ -71,11 +71,7 @@ Map<String,UserChat> listOfChats;
         fillDataList();
         return dataList;
     }
-    public void addIdea(String title,String body)
-    {
-        UserIdea userIdea=new UserIdea(title,body,"idea_"+createUserId());
-        listOfIdeas.put(userIdea.getIdeaId(),userIdea);
-    }
+
     public void addToListOfChats(UserChat userChat){
 
     }
@@ -87,11 +83,23 @@ Map<String,UserChat> listOfChats;
     public Map<String, UserIdea> getListOfIdeas() {
         return listOfIdeas;
     }
+    public void updateIdeaList(UserIdea userIdea) {
+        if (userIdea != null){
+            if(userIdea.getIdeaId()==null||userIdea.getIdeaId().isEmpty()) {
+                UserIdea uIdea=new UserIdea(userIdea.getTitle(),userIdea.getBody(),"idea_"+createUserId());
+                listOfIdeas.put(uIdea.ideaId,uIdea);}
+            else listOfIdeas.put(userIdea.ideaId,userIdea);
+    }
+    }
+
+
+
     String createUserId()
     {
         UUID uuid=UUID.randomUUID();
         return uuid.toString();
     }
+
 void fillDataList(){
     dataList=new HashMap<>();
     dataList.put("chat",null);

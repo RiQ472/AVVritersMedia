@@ -1,34 +1,31 @@
 package com.example.avvritersmedia;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import com.example.avvritersmedia.databinding.FragmentIdeaPgBinding;
-import com.example.avvritersmedia.databinding.FragmentInsparationPgBinding;
 
 
 public class IdeaPg extends Fragment {
 
     FragmentIdeaPgBinding binding;
-    Button rooms;
     Button writersblock;
     Button idea;
     Button inspiration;
-    Button myidea;
-    private ImageButton btnInspiration, btnIdea, btnWritersBlock;
+    private ImageButton btnInspiration, btnIdea, btnWritersBlock,btnProfile,btnJoinRoom,btsChatrooms, btnMyIdea,menu,plus;
+    RelativeLayout relativeLayout;
 
-    ImageButton plus;
     public IdeaPg() {
         // Required empty public constructor
     }
@@ -44,11 +41,16 @@ public class IdeaPg extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= FragmentIdeaPgBinding.inflate(inflater,container,false);
-        rooms = binding.buttonRooms;
         writersblock = binding.buttonWritersBlock;
         idea = binding.buttonIdea;
         inspiration = binding.buttonInspiration;
-        myidea = binding.buttonMyIdeas;
+
+        relativeLayout=binding.relativeLayoutMenu;
+        menu=binding.imageButtonMenu;
+        btnProfile=binding.imageButtonProfile;
+        btsChatrooms=binding.imageButtonMyRooms;
+        btnMyIdea=binding.imageButtonMyIdeas;
+
         plus = binding.buttonAddIdea;
         btnInspiration=binding.buttonInspoLine;
         btnIdea=binding.buttonIdeaLine;
@@ -57,14 +59,27 @@ public class IdeaPg extends Fragment {
         btnIdea.setVisibility(View.VISIBLE);
         return binding.getRoot();
     }
+    @SuppressLint("ClickableViewAccessibility")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         idea.setOnClickListener(v -> replaceFragment(new IdeaPg()));
-        inspiration.setOnClickListener(v -> replaceFragment(new InsparationPg()));
+        inspiration.setOnClickListener(v -> replaceFragment(new InspirationPg()));
         writersblock.setOnClickListener(v -> replaceFragment(new WritersBlockPg()));
-        rooms.setOnClickListener(v -> replaceFragment(new UserChatRooms()));
-        myidea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
+        btnMyIdea.setOnClickListener(v -> replaceFragment(new UserIdeasPg()));
+        btsChatrooms.setOnClickListener(v -> replaceFragment(new UserChatRooms()));
+        btnProfile.setOnClickListener(v -> replaceFragment(new ProfilePg()));
         plus.setOnClickListener(v -> replaceFragment(new AddUserIdeaPg()));
+
+        menu.setOnClickListener(view1 -> {
+            if(relativeLayout.getVisibility()==View.GONE)relativeLayout.setVisibility(View.VISIBLE);
+            else relativeLayout.setVisibility(View.GONE);
+        });
+        binding.getRoot().setOnTouchListener((v, event) -> {
+            if (relativeLayout.getVisibility() == View.VISIBLE) {
+                relativeLayout.setVisibility(View.GONE);
+            }
+            return false;
+        });
     }
     private void resetButtonStates() {
         // Reset all buttons to default state
